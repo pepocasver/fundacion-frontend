@@ -26,7 +26,7 @@ function Login() {
   async function handleSubmit(event) {
     event.preventDefault();
     console.log(form)
-    const result = await axios.post('https://bonos-backend-ecode.vercel.app/api/user/login', form);
+    const result = await axios.post('https://fundacion-backend.vercel.app/api/user/login', form);
     console.log(result.status)
     setUser(result.data)
     localStorage.setItem('user', JSON.stringify(result.data))
