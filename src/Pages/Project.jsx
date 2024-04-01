@@ -19,7 +19,7 @@ function Project() {
   const navigate = useNavigate()
 
   async function getProject() {
-    const result = await axios.get('https://bonos-backend-ecode.vercel.app/api/projects/' + params.id);
+    const result = await axios.get('https://fundacion-backend.vercel.app/api/projects/' + params.id);
     console.log(result.data)
     setProject(result.data);
   }
@@ -46,7 +46,7 @@ function Project() {
     formCopy.projectId = project._id;
     formCopy.investment = (formCopy.investment === 'true');
     console.log(formCopy)
-    const result = await axios.post('https://bonos-backend-8tth.vercel.app/api/contributions', formCopy);
+    const result = await axios.post('https://fundacion-backend.vercel.app/api/contributions', formCopy);
     console.log(result.status)
     // navigate('/')
   }
