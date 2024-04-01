@@ -45,7 +45,7 @@ function Home() {
         {user && <h3>Welcome, {user.email}!</h3>}
         <div className="projectsContainer">
           <div className={`projectsColumn category-0`}>
-            <h2 className="column-title">Urgent</h2> {/* Título para la columna de la categoría 0 */}
+            <h2 className="column-title">Urgently</h2> {/* Título para la columna de la categoría 0 */}
             {renderProjects(projectsByCategory[0])}
           </div>
           <div className={`projectsColumn category-1`}>
