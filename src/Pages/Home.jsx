@@ -10,7 +10,7 @@ function Home() {
   const [projects, setProjects] = useState([])
 
   async function getProjects() {
-    const result = await axios.get('http://localhost:3000/api/projects');
+    const result = await axios.get('https://fundacion-backend.vercel.app/api/projects');
     setProjects(result.data);
   }
 
