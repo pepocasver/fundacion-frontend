@@ -1,0 +1,9 @@
+body {
+  width: 100%;
+  min-height: 100vh;
+  /* border: 3px solid red; */
+  background-color: rgb(201, 198, 195);
+  margin: 0;
+  font-family: 'Noto Sans JP', sans-serif;
+
+}

@@ -1,0 +1,444 @@
+
+:root {
+  --curve: 40;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Centrar los contenidos para que quede margen por los lados; 2 media queries para 2 tamaños */
+.container {
+  max-width: 1200px; /* Esto suele funcionar bien para la mayoría de los anchos de pantalla. */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px; /* Un poco más de espacio interno podría ser visualmente más atractivo. */
+  padding-right: 20px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}
+
+
+
+.projectsContainer {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 35px;
+  }
+  
+  .projectsColumn {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin: 10px;
+    border-radius: 10px;
+    min-width: 300px; /* Ajusta este valor según tus necesidades */
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+  
+  /* Estilos específicos de categoría */
+  .category-0 {
+    background-color: #f28b82; /* Rojo claro */
+  }
+
+  .category-1 {
+    background-color: #fbbc04; /* Amarillo */
+  }
+
+  .category-2 {
+    background-color: #fff475; /* Amarillo claro */
+  }
+
+
+/* ESTILOS TARJETAS */
+.projectCard {
+  position: relative;
+  display: block;
+  border-radius: calc(var(--curve) * 1px);
+  overflow: hidden;
+  text-decoration: none;
+  height: 350px;
+  margin: 20px;
+  width: 350px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.card__image {      
+  width: 100%;
+  height: 300px;
+}
+
+.card__overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;      
+  border-radius: calc(var(--curve) * 1px);    
+  background-color: white;      
+  transform: translateY(100%);
+  transition: .2s ease-in-out;
+}
+
+.projectCard:hover .card__overlay {
+  transform: translateY(0);
+}
+
+.card__header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 2em;
+  padding: 1em;
+  border-radius: calc(var(--curve) * 1px) 0 0 0;    
+  background-color: white;
+  transform: translateY(-100%);
+  transition: .2s ease-in-out;
+}
+
+.card__arc {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  bottom: 100%;
+  right: 0;      
+  z-index: 1;
+}
+
+/* Quito la d: y un path */
+.card__arc path {
+  fill: white;
+}       
+
+.projectCard:hover .card__header {
+  transform: translateY(0);
+}
+
+.card__thumb {
+  flex-shrink: 0;
+  width: 80px;
+  height: 80px;      
+  border-radius: 50%;
+}
+
+.card__title {
+  font-size: 1em;
+  margin: 0 0 .3em;
+  color: #6A515E;
+}
+
+.card__tagline {
+  display: block;
+  margin: 1em 0;
+  font-family: "MockFlowFont";  
+  font-size: .8em; 
+  color: #D7BDCA;  
+}
+
+.card__status {
+  font-size: .8em;
+  /* color: #D7BDCA; */
+  color: #A0859B;
+}
+
+.card__description {
+  padding: 0 2em 2em;
+  margin: 0;
+  /* color: #D7BDCA; */
+  color: #A0859B;
+  font-family: "MockFlowFont";   
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}    
+
+.NavBar {
+  height: 6rem;
+  background-color: #a09d9e;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 30px;
+  padding-right: 30px;
+  align-items: center;
+  /* Esto asegura que la barra de navegación se mantenga sobre otros elementos */
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.NavBar nav {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+/* Para poner estilo al logo de la Navbar */
+.logo {
+    width: 300px;
+    height: auto;
+  }
+
+/* Para bajar el contenido de las paginas y que el NavBar no oculte nada */
+.content-below-navbar {
+  margin-top: 1rem; /* Ajusta a la altura de tu NavBar */
+}
+
+.hamburger {
+  display: none; /* Ocultar por defecto, se mostrará en el media query */
+  cursor: pointer;
+}
+
+/* Media query para dispositivos móviles; NAVBAR HAMBURGUESA */
+@media (max-width: 768px) {
+  .logo {
+    width: 175px; /* Ajusta el tamaño del logo para móviles */
+    height: auto; /* Mantiene la proporción */
+  }
+
+  .hamburger {
+    display: block; /* Mostrar el botón de hamburguesa en móviles */
+    font-size: 1.3rem; /* Aumenta el tamaño del texto del botón de menú */
+    padding: 10px 20px; /* Ajusta el padding para hacer el botón más grande */
+  }
+
+  .NavBar nav {
+    position: absolute;
+    top: 6rem;
+    left: 0;
+    right: 0;
+    display: none;
+    flex-direction: column;
+    background-color: #a09d9e;
+    padding: 1rem;
+    gap: 20px;
+  }
+
+  .NavBar nav.expanded {
+    display: flex; /* Mostrar el menú cuando está expandido */
+  }
+}
+  
+  
+
+/* ESTILO PARA LA PAGINA DE PROYECTOS */
+/* Contenedor principal debajo de la barra de navegación */
+.content-below-navbar {
+  display: flex;
+  justify-content: center;
+  padding-top: 80px; /* Ajustar según la altura de tu NavBar */
+}
+
+/* Contenedor del proyecto */
+.project-container {
+  text-align: center; /* Centra el título y la imagen */
+  width: 100%; /* Utiliza el ancho completo del viewport */
+  max-width: 1260px; /* ancho máximo que prefiera */
+  margin: auto; /* Para centrar el contenedor */
+  margin-bottom: 50px; /* Espacio después de la tabla y antes del final de la página */
+}
+
+/* Título del proyecto */
+.project-title {
+  margin-bottom: 20px; /* Espacio debajo del título */
+}
+
+/* Imagen del proyecto */
+.project-image {
+  max-width: 100%; /* Se ajusta al ancho del contenedor */
+  height: auto; /* Mantiene la relación de aspecto */
+  max-height: 400px; /* Altura máxima para que no sea demasiado grande */
+  margin-bottom: 30px; /* Espacio debajo de la imagen */
+}
+
+/* Detalles del proyecto con estilo de tabla */
+.project-table {
+  background-color: #f3f3f3; /* Fondo ligeramente gris para la tabla */
+  border-radius: 10px; /* Bordes redondeados */
+  overflow: hidden; /* Oculta los bordes sobrantes */
+  box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Sombra sutil */
+  margin: 0 auto;
+  width: calc(100% - 20px); /* Ajusta el ancho total menos el margen */
+}
+
+/* Fila de la tabla */
+.project-row {
+  display: flex;
+  justify-content: space-between; /* Separa las etiquetas y los valores */
+  padding: 10px 20px; /* Espaciado interno: Padding general para la fila */
+  border-bottom: 1px solid #ddd; /* Línea divisoria suave */
+}
+
+/* Última fila sin borde inferior */
+.project-row:last-child {
+  border-bottom: none;
+}
+
+/* Etiqueta o nombre de la fila */
+.project-label {
+  font-weight: bold; /* Negrita para la etiqueta */
+  text-align: right;
+  margin-right: 10px;
+  padding-right: 20px; /* Espacio a la derecha de la etiqueta */
+  flex-basis: 40%; /* Ajusta el ancho de la columna de la etiqueta */
+}
+
+/* Valor de la fila */
+.project-value {
+  text-align: left; /* Alinea el texto a la izquierda */
+  padding-left: 20px; /* Espacio a la izquierda del valor */
+  flex-grow: 1; /* Permite que el valor ocupe el espacio restante */
+  flex-basis: 60%; /* Ajusta el ancho de la columna del valor */
+}
+
+
+
+/* ESTILOS PARA SOCIAL IMPACT, ABOUT US, CONTACT */
+.content-below-navbar {
+  padding-top: 6rem; /* Ajustar según la altura de tu NavBar */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.page-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.page-image {
+  max-width: 70%; /* Ajusta esto para cambiar el tamaño de la imagen */
+  height: auto;
+  margin-bottom: 30px;
+  border-radius: 40px; /* Redondea las esquinas de la imagen */
+}
+
+.section {
+  width: 80%;
+  max-width: 800px; /* Ajusta este valor para cambiar el ancho de las secciones de texto */
+  margin-bottom: 20px;
+  text-align: center; /* Centra los subtítulos y párrafos */
+}
+
+.subtitle {
+  font-size: 1.5em;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.paragraph {
+  font-size: 1.2em;
+  color: #666;
+  margin-bottom: 30px; /* Espacio adicional al final de cada sección de texto */
+  text-align: justify; /* Justifica el texto del párrafo */
+}
+
+.project-list {
+  text-align: left;
+  padding-left: 20px; /* Ajusta el espaciado interior de la lista */
+}
+
+.project-list li {
+  margin-bottom: 10px; /* Espacio entre puntos de la lista */
+}
+
+/* ESTILO PARA CONTACT; añadir estilos específicos para formularios, botones, enlaces, etc. */
+.contact-container {
+  padding: 20px;
+  text-align: center;
+}
+
+.contact-title {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.contact-image {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 30px;
+  border-radius: 10px;
+}
+
+.contact-section {
+  background-color: #f5f5f5;
+  margin-bottom: 20px;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.contact-subtitle {
+  font-size: 1.5em;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+
+.form {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+
+}
+
+/* BOTON PARA CHAT*/
+.chat-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000; /* Asegúrate de que el z-index sea suficientemente alto para estar sobre otros elementos */
+  padding: 10px 20px; /* Aumenta el relleno para hacerlo más grande */
+  background-color: #007bff; /* Usa el color que prefieras */
+  color: white; /* Cambia el color del texto si es necesario */
+  border: none;
+  border-radius: 50px; /* Borde redondeado para el botón */
+  font-size: 1.2em; /* Letra más grande */
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil para el botón */
+  outline: none;
+  transition: background-color 0.3s, transform 0.3s; /* Transición suave para hover y click */
+}
+
+.chat-button:hover {
+  background-color: #0056b3; /* Color más oscuro al pasar el ratón por encima */
+  transform: scale(1.05); /* Ligero aumento de tamaño al pasar el ratón por encima */
+}
+
+.chat-button:active {
+  transform: scale(0.95); /* Efecto de clic */
+}
+
+/* Ajustes para el cuadro de diálogo que aparece después de hacer clic en el botón */
+.dialog-box {
+  position: fixed;
+  right: 20px; /* Alineado a la derecha */
+  top: 50%; /* Centrado verticalmente */
+  transform: translateY(-50%); /* Ajuste para centrar exactamente en la mitad */
+  z-index: 1001; /* Asegúrate de que esté por encima del botón */
+  background-color: white; /* o cualquier otro color de fondo que prefieras */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  /* Establece un ancho máximo o un ancho específico según tus necesidades */
+  max-width: 300px;
+  width: 100%;
+}
+
