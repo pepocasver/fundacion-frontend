@@ -44,7 +44,21 @@ function Login() {
         <input className='input' placeholder='Your password' type='password' name='password' onChange={handleChange} value={form.password} />
         <button className='form-button'>Log In</button>
         {/* Botón adicional "Go to Dapp" */}
-        <a href="http://www.ecode.es/" target="_blank" rel="noopener noreferrer" className='form-button' style={{marginTop: '10px'}}>Go to Dapp</a>
+        <a href="http://www.ecode.es/" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           className='form-button' 
+           style={{
+             marginTop: '10px',
+             display: 'inline-block', 
+             textDecoration: 'none', 
+             color: 'inherit', // Asumiendo que tu botón tiene un color de texto específico
+             textAlign: 'center',
+             padding: 'same-as-button', // Asegúrate de usar el mismo padding que el botón
+             border: 'none', // Si el botón no tiene borde
+             backgroundColor: 'inherit', // O el color de fondo específico del botón
+             cursor: 'pointer'
+           }}>Go to Dapp</a>
         <Link to="/register">Not registered? Click here</Link>
       </form>
     </div>
