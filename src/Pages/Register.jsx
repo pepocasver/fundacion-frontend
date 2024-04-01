@@ -24,7 +24,7 @@ function Register() {
   async function handleSubmit(event) {
     event.preventDefault();
     console.log(form)
-    const result = await axios.post('https://bonos-backend-ecode.vercel.app/api/user', form);
+    const result = await axios.post('https://fundacion-backend.vercel.app/api/user', form);
     alert('Thank you for registering, please log in now')
     navigate('/login')
   }
