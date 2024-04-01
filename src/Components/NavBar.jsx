@@ -25,8 +25,10 @@ function NavBar() {
 
     // Función para manejar el clic del botón de chat
     const handleChatClick = () => {
-        // Aquí puedes colocar la lógica para abrir tu chat
-        console.log("Abrir chat");
+        // URL de la página web que deseas abrir
+           const chatUrl = 'https://iebs-chatbot.vercel.app/';
+        // Abrir en una nueva pestaña
+        window.open(chatUrl, '_blank');
     }
 
     return (
