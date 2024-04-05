@@ -8,6 +8,7 @@ import Login from "./Pages/Login"
 import Register from "./Pages/Register"
 import SocialImpact from "./Pages/SocialImpact"
 import NavBar from "./Components/NavBar"
+import ChatbotPage from "./Pages/Chatbot"
 import './App.css';
 
 
@@ -26,6 +27,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/project/:id" element={<Project />} />
         <Route path="/social-impact" element={<SocialImpact />} />
+        <Route path="/chatbot" element={<ChatbotPage />} />
       </Routes>
     </div>
     </>
